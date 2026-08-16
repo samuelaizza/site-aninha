@@ -1,16 +1,27 @@
+```html
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para Ana — Um ano de nós</title>
-<meta name="description" content="Uma pequena carta para Ana, sobre um ano de sentimentos, encontros e saudade.">
+
+<meta
+  name="description"
+  content="Uma pequena carta para Ana, sobre um ano de sentimentos, encontros e saudade."
+>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap"
+  rel="stylesheet"
+>
 
 <style>
+
 :root{
   --bg:#050505;
   --panel:#0c0c0c;
@@ -25,11 +36,11 @@
 *{
   box-sizing:border-box;
   margin:0;
-  padding:0
+  padding:0;
 }
 
 html{
-  scroll-behavior:smooth
+  scroll-behavior:smooth;
 }
 
 body{
@@ -40,6 +51,8 @@ body{
   overflow-x:hidden;
 }
 
+/* TEXTURA */
+
 body:before{
   content:"";
   position:fixed;
@@ -47,825 +60,1672 @@ body:before{
   pointer-events:none;
   z-index:10;
   opacity:.045;
+
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 a{
   color:inherit;
-  text-decoration:none
+  text-decoration:none;
 }
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero{
   min-height:100vh;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   text-align:center;
+
   position:relative;
+
   padding:70px 24px;
+
   overflow:hidden;
 
   background:
-    radial-gradient(circle at 50% 42%,rgba(255,255,255,.08),transparent 25%),
-    linear-gradient(180deg,#000 0%,#070707 70%,#050505 100%);
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(255,255,255,.08),
+      transparent 25%
+    ),
+    linear-gradient(
+      180deg,
+      #000 0%,
+      #070707 70%,
+      #050505 100%
+    );
 }
 
 .hero:after{
   content:"";
+
   position:absolute;
+
   width:520px;
   height:520px;
+
   border:1px solid #292929;
+
   border-radius:50%;
+
   transform:rotate(22deg);
+
   opacity:.55;
 }
 
 .ornament{
   font-family:Cinzel,serif;
+
   letter-spacing:8px;
+
   font-size:11px;
+
   color:#8d8d8d;
-  text-transform:uppercase
+
+  text-transform:uppercase;
 }
 
 .hero h1{
   font-family:Cinzel,serif;
+
   font-weight:500;
-  font-size:clamp(58px,12vw,150px);
+
+  font-size:clamp(
+    58px,
+    12vw,
+    150px
+  );
+
   letter-spacing:.08em;
+
   line-height:.95;
+
   margin:22px 0;
 }
 
 .hero .subtitle{
   max-width:650px;
+
   margin:auto;
+
   color:#bdbdbd;
-  font-size:15px
+
+  font-size:15px;
 }
 
 .scroll{
   position:absolute;
+
   bottom:28px;
+
   left:50%;
+
   transform:translateX(-50%);
+
   font-size:10px;
+
   letter-spacing:4px;
+
   color:#777;
-  text-transform:uppercase
+
+  text-transform:uppercase;
 }
 
 .scroll:after{
   content:"";
+
   display:block;
+
   width:1px;
+
   height:42px;
+
   background:#555;
-  margin:12px auto 0
+
+  margin:12px auto 0;
 }
+
+
+/* =========================
+   SEÇÕES
+========================= */
 
 section{
   max-width:1050px;
+
   margin:auto;
-  padding:115px 25px
+
+  padding:115px 25px;
 }
 
 .section-head{
   text-align:center;
-  margin-bottom:60px
+
+  margin-bottom:60px;
 }
 
 .kicker{
   font-family:Cinzel,serif;
+
   font-size:11px;
+
   letter-spacing:5px;
+
   text-transform:uppercase;
-  color:#858585
+
+  color:#858585;
 }
 
 h2{
   font-family:Cinzel,serif;
-  font-size:clamp(30px,5vw,52px);
+
+  font-size:clamp(
+    30px,
+    5vw,
+    52px
+  );
+
   font-weight:500;
-  margin-top:10px
+
+  margin-top:10px;
 }
 
 .intro{
   max-width:760px;
+
   margin:0 auto;
+
   text-align:center;
+
   color:#c3c3c3;
+
   font-size:17px;
 }
 
 .intro em{
-  color:white
+  color:white;
 }
+
+
+/* =========================
+   TIMELINE
+========================= */
 
 .timeline{
   position:relative;
-  margin-top:70px
+
+  margin-top:70px;
 }
 
 .timeline:before{
   content:"";
+
   position:absolute;
+
   left:50%;
+
   top:0;
+
   bottom:0;
+
   width:1px;
-  background:var(--line)
+
+  background:var(--line);
 }
 
 .card{
   width:calc(50% - 48px);
+
   padding:30px;
-  background:linear-gradient(145deg,#0e0e0e,#080808);
+
+  background:
+    linear-gradient(
+      145deg,
+      #0e0e0e,
+      #080808
+    );
+
   border:1px solid #222;
+
   position:relative;
+
   margin-bottom:70px;
-  box-shadow:0 18px 60px rgba(0,0,0,.35)
+
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.35);
 }
 
 .card:nth-child(odd){
-  margin-right:auto
+  margin-right:auto;
 }
 
 .card:nth-child(even){
-  margin-left:auto
+  margin-left:auto;
 }
 
 .card:before{
   content:"";
+
   position:absolute;
+
   top:34px;
+
   width:9px;
+
   height:9px;
+
   border:1px solid white;
+
   background:#050505;
-  transform:rotate(45deg)
+
+  transform:rotate(45deg);
 }
 
 .card:nth-child(odd):before{
-  right:-53px
+  right:-53px;
 }
 
 .card:nth-child(even):before{
-  left:-53px
+  left:-53px;
 }
 
 .month{
   font-family:Cinzel,serif;
+
   font-size:12px;
+
   letter-spacing:3px;
+
   color:#8d8d8d;
-  text-transform:uppercase
+
+  text-transform:uppercase;
 }
 
 .card h3{
   font-family:Cinzel,serif;
+
   font-size:24px;
+
   font-weight:500;
-  margin:8px 0 16px
+
+  margin:8px 0 16px;
 }
 
 .card p{
   color:#b7b7b7;
-  font-size:15px
+
+  font-size:15px;
 }
 
 .quote{
   margin-top:22px;
+
   padding:18px 20px;
+
   border-left:1px solid #777;
+
   color:#ddd;
+
   font-family:Cinzel,serif;
+
   font-style:italic;
-  font-size:15px
+
+  font-size:15px;
 }
+
+
+/* =========================
+   DETALHES
+========================= */
 
 .loves{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+
+  grid-template-columns:
+    repeat(3,1fr);
+
   gap:14px;
-  margin-top:50px
+
+  margin-top:50px;
 }
 
 .love{
   padding:28px 22px;
+
   border:1px solid #222;
+
   background:#0a0a0a;
+
   min-height:170px;
-  transition:.3s transform,.3s border-color,.3s background
+
+  transition:
+    .3s transform,
+    .3s border-color,
+    .3s background;
 }
 
 .love:hover{
   transform:translateY(-5px);
+
   border-color:#555;
-  background:#101010
+
+  background:#101010;
 }
 
 .love span{
   font-family:Cinzel,serif;
+
   font-size:12px;
+
   letter-spacing:3px;
-  color:#888
+
+  color:#888;
 }
 
 .love h3{
   font-family:Cinzel,serif;
+
   font-weight:500;
+
   margin:8px 0 9px;
-  font-size:20px
+
+  font-size:20px;
 }
 
 .love p{
   font-size:14px;
-  color:#aaa
+
+  color:#aaa;
 }
 
-.letter{
-  max-width:790px;
-  margin:auto;
-  border:1px solid #242424;
-  padding:55px 45px;
-  background:linear-gradient(135deg,#0c0c0c,#070707);
+
+/* =====================================================
+   SEGREDO
+===================================================== */
+
+.secret-wrapper{
+  text-align:center;
+
+  margin-top:20px;
+
+  margin-bottom:20px;
+
   position:relative;
+}
+
+
+/* linha discreta */
+
+.secret-line{
+  width:1px;
+
+  height:80px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      #444,
+      transparent
+    );
+
+  margin:0 auto 25px;
+}
+
+
+/* botão secreto */
+
+.secret-button{
+
+  appearance:none;
+
+  border:none;
+
+  background:transparent;
+
+  color:#666;
+
+  font-family:Cinzel,serif;
+
+  font-size:11px;
+
+  letter-spacing:4px;
+
+  text-transform:uppercase;
+
+  cursor:pointer;
+
+  padding:15px 25px;
+
+  transition:
+    color .5s ease,
+    letter-spacing .5s ease,
+    opacity .5s ease;
+
+  position:relative;
+}
+
+.secret-button:before,
+.secret-button:after{
+  content:"✦";
+
+  position:absolute;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  font-size:9px;
+
+  color:#444;
+
+  opacity:.7;
+
+  transition:
+    .5s ease;
+}
+
+.secret-button:before{
+  left:0;
+}
+
+.secret-button:after{
+  right:0;
+}
+
+.secret-button:hover{
+  color:#ddd;
+
+  letter-spacing:6px;
+}
+
+.secret-button:hover:before,
+.secret-button:hover:after{
+  color:#aaa;
+}
+
+
+/* texto pequeno */
+
+.secret-hint{
+  margin-top:8px;
+
+  color:#444;
+
+  font-size:10px;
+
+  opacity:.7;
+
+  letter-spacing:2px;
+
+  transition:
+    opacity .5s ease;
+}
+
+.secret-button:hover + .secret-hint{
+  color:#666;
+}
+
+
+/* conteúdo escondido */
+
+.secret-content{
+
+  max-width:790px;
+
+  margin:0 auto;
+
+  max-height:0;
+
+  opacity:0;
+
+  overflow:hidden;
+
+  transform:
+    translateY(30px);
+
+  transition:
+    max-height 1.5s ease,
+    opacity 1s ease,
+    transform 1s ease;
+
+  pointer-events:none;
+}
+
+
+/* quando abre */
+
+.secret-content.open{
+
+  max-height:5000px;
+
+  opacity:1;
+
+  transform:
+    translateY(0);
+
+  pointer-events:auto;
+
+  margin-top:45px;
+}
+
+
+/* efeito no botão depois de abrir */
+
+.secret-wrapper.revealed
+.secret-button{
+
+  color:#999;
+
+  pointer-events:none;
+}
+
+.secret-wrapper.revealed
+.secret-hint{
+
+  opacity:0;
+}
+
+
+/* =====================================================
+   CARTA
+===================================================== */
+
+.letter{
+
+  max-width:790px;
+
+  margin:auto;
+
+  border:1px solid #242424;
+
+  padding:55px 45px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0c0c0c,
+      #070707
+    );
+
+  position:relative;
+
+  box-shadow:
+    0 20px 80px rgba(0,0,0,.25);
 }
 
 .letter:before,
 .letter:after{
+
   content:"✦";
+
   position:absolute;
+
   color:#555;
-  font-size:18px
+
+  font-size:18px;
 }
 
 .letter:before{
   top:20px;
-  left:24px
+  left:24px;
 }
 
 .letter:after{
   bottom:20px;
-  right:24px
+  right:24px;
 }
 
 .letter p{
   color:#c8c8c8;
-  margin-bottom:20px
+
+  margin-bottom:20px;
+}
+
+.letter strong{
+  color:white;
+
+  font-weight:500;
+}
+
+.letter em{
+  color:#eee;
 }
 
 .signature{
   font-family:Cinzel,serif;
+
   font-size:24px;
+
   margin-top:35px;
-  text-align:right
+
+  text-align:right;
 }
 
+
+/* =========================
+   FINAL
+========================= */
+
 .final{
+
   min-height:75vh;
+
   display:flex;
+
   align-items:center;
+
   justify-content:center;
+
   text-align:center;
-  border-top:1px solid #171717
+
+  border-top:1px solid #171717;
 }
 
 .final h2{
-  font-size:clamp(38px,7vw,75px)
+  font-size:clamp(
+    38px,
+    7vw,
+    75px
+  );
 }
 
 .final p{
   color:#999;
+
   max-width:620px;
-  margin:20px auto
+
+  margin:20px auto;
 }
 
 .heart{
   font-size:25px;
+
   margin-top:28px;
+
   display:inline-block;
-  animation:pulse 2.2s infinite
+
+  animation:pulse 2.2s infinite;
 }
 
 @keyframes pulse{
+
   50%{
     transform:scale(1.18);
-    opacity:.65
+
+    opacity:.65;
   }
+
 }
 
+
+/* =========================
+   REVEAL
+========================= */
+
 .reveal{
+
   opacity:0;
-  transform:translateY(24px);
-  transition:opacity .8s ease,transform .8s ease
+
+  transform:
+    translateY(24px);
+
+  transition:
+    opacity .8s ease,
+    transform .8s ease;
 }
 
 .reveal.show{
+
   opacity:1;
-  transform:none
+
+  transform:none;
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:720px){
 
   .timeline:before{
-    left:10px
+    left:10px;
   }
 
   .card,
   .card:nth-child(even),
   .card:nth-child(odd){
+
     width:calc(100% - 35px);
+
     margin-left:35px;
-    margin-right:0
+
+    margin-right:0;
   }
 
   .card:before,
   .card:nth-child(odd):before,
   .card:nth-child(even):before{
+
     left:-31px;
-    right:auto
+
+    right:auto;
   }
 
   .loves{
-    grid-template-columns:1fr
+    grid-template-columns:1fr;
   }
 
   .letter{
-    padding:38px 25px
+
+    padding:38px 25px;
   }
+
+  .secret-button{
+
+    font-size:9px;
+
+    letter-spacing:3px;
+  }
+
+  .secret-button:hover{
+
+    letter-spacing:4px;
+  }
+
 }
+
 </style>
+
 </head>
+
 
 <body>
 
-<header class="hero">
-  <div>
-    <div class="ornament">Uma história que eu não quero esquecer</div>
 
-    <h1>ANA</h1>
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<header class="hero">
+
+  <div>
+
+    <div class="ornament">
+      Uma história que eu não quero esquecer
+    </div>
+
+    <h1>
+      ANA
+    </h1>
 
     <p class="subtitle">
-      Um ano pode parecer pouco para o mundo. Para mim, foi tempo suficiente
-      para você se tornar uma das partes mais bonitas da minha vida.
+
+      Um ano pode parecer pouco para o mundo.
+      Para mim, foi tempo suficiente para você se tornar
+      uma das partes mais bonitas da minha vida.
+
     </p>
+
   </div>
 
-  <div class="scroll">continue</div>
+  <div class="scroll">
+    continue
+  </div>
+
 </header>
 
+
+
 <main>
+
+
+<!-- =====================================================
+     INTRODUÇÃO
+===================================================== -->
 
 <section class="reveal">
 
   <div class="section-head">
-    <div class="kicker">Antes de tudo</div>
-    <h2>Para você, Ana.</h2>
+
+    <div class="kicker">
+      Antes de tudo
+    </div>
+
+    <h2>
+      Para você, Ana.
+    </h2>
+
   </div>
 
+
   <p class="intro">
-    Existem pessoas que simplesmente passam pela nossa vida. E existem aquelas
-    que deixam alguma coisa para trás — uma lembrança, um sorriso, uma saudade,
-    uma vontade de ficar.
+
+    Existem pessoas que simplesmente passam pela nossa vida.
+    E existem aquelas que deixam alguma coisa para trás —
+    uma lembrança, um sorriso, uma saudade, uma vontade de ficar.
 
     <br><br>
 
-    <em>Você é uma dessas pessoas.</em>
+    <em>
+      Você é uma dessas pessoas.
+    </em>
 
-    Este é o meu jeito de guardar em palavras um ano que significou muito para mim.
+    Este é o meu jeito de guardar em palavras um ano
+    que significou muito para mim.
+
   </p>
 
 </section>
 
 
+
+<!-- =====================================================
+     TIMELINE
+===================================================== -->
+
 <section class="reveal">
 
   <div class="section-head">
-    <div class="kicker">Nossa história</div>
-    <h2>12 meses, tantos sentimentos.</h2>
+
+    <div class="kicker">
+      Nossa história
+    </div>
+
+    <h2>
+      12 meses, tantos sentimentos.
+    </h2>
+
   </div>
+
 
   <div class="timeline">
 
+
     <article class="card">
 
-      <div class="month">Mês 1</div>
+      <div class="month">
+        Mês 1
+      </div>
 
-      <h3>Quando tudo começou</h3>
+      <h3>
+        Quando tudo começou
+      </h3>
 
       <p>
-        Eu ainda não sabia o quanto você se tornaria importante. Era só o começo,
-        uma presença nova, uma pessoa que aos poucos começou a ocupar um espaço
-        diferente na minha cabeça.
 
-        Hoje, olhando para trás, eu gosto de pensar que naquele primeiro mês
-        começou algo que eu jamais gostaria de ter perdido.
+        Eu ainda não sabia o quanto você se tornaria importante.
+        Era só o começo, uma presença nova, uma pessoa que aos poucos
+        começou a ocupar um espaço diferente na minha cabeça.
+
+        Hoje, olhando para trás, eu gosto de pensar que naquele primeiro
+        mês começou algo que eu jamais gostaria de ter perdido.
+
       </p>
 
       <div class="quote">
-        “Algumas histórias começam sem avisar que um dia serão inesquecíveis.”
+
+        “Algumas histórias começam sem avisar
+        que um dia serão inesquecíveis.”
+
       </div>
 
     </article>
 
 
+
     <article class="card">
 
-      <div class="month">Mês 5</div>
+      <div class="month">
+        Mês 5
+      </div>
 
-      <h3>Quando começamos a nos aproximar</h3>
+      <h3>
+        Quando começamos a nos aproximar
+      </h3>
 
       <p>
-        Foi quando conversar com você começou a ter outro peso. Sua presença
-        passou a fazer diferença, e os pequenos momentos começaram a ficar
-        grandes dentro de mim.
 
-        Quanto mais eu te conhecia, mais encontrava motivos para gostar de você.
+        Foi quando conversar com você começou a ter outro peso.
+        Sua presença passou a fazer diferença, e os pequenos momentos
+        começaram a ficar grandes dentro de mim.
+
+        Quanto mais eu te conhecia, mais encontrava motivos
+        para gostar de você.
+
       </p>
 
       <div class="quote">
-        “Foi no detalhe que eu comecei a perceber o quanto você era especial.”
+
+        “Foi no detalhe que eu comecei a perceber
+        o quanto você era especial.”
+
       </div>
 
     </article>
 
 
+
     <article class="card">
 
-      <div class="month">Mês 7</div>
+      <div class="month">
+        Mês 7
+      </div>
 
-      <h3>Quando nos distanciamos</h3>
+      <h3>
+        Quando nos distanciamos
+      </h3>
 
       <p>
-        A distância me fez perceber uma coisa que eu talvez ainda não soubesse
-        explicar: eu sentia sua falta. Muito.
 
-        Sentia falta das conversas, das risadas, do seu jeito e até daqueles
-        pequenos momentos que eu só percebi que eram importantes depois que
-        deixaram de acontecer.
+        A distância me fez perceber uma coisa que eu talvez ainda
+        não soubesse explicar: eu sentia sua falta. Muito.
+
+        Sentia falta das conversas, das risadas, do seu jeito
+        e até daqueles pequenos momentos que eu só percebi
+        que eram importantes depois que deixaram de acontecer.
+
       </p>
 
       <div class="quote">
-        “Foi na ausência que eu entendi o tamanho da sua presença.”
+
+        “Foi na ausência que eu entendi
+        o tamanho da sua presença.”
+
       </div>
 
     </article>
 
 
+
     <article class="card">
 
-      <div class="month">Mês 11</div>
+      <div class="month">
+        Mês 11
+      </div>
 
-      <h3>Quando voltamos a nos falar</h3>
+      <h3>
+        Quando voltamos a nos falar
+      </h3>
 
       <p>
-        E então você voltou a fazer parte dos meus dias. Talvez você não tenha
-        ideia do quanto isso significou para mim, mas foi um dos melhores dias
-        da minha vida.
 
-        Foi como reencontrar uma parte de mim que eu nem sabia que estava procurando.
+        E então você voltou a fazer parte dos meus dias.
+        Talvez você não tenha ideia do quanto isso significou para mim,
+        mas foi um dos melhores dias da minha vida.
+
+        Foi como reencontrar uma parte de mim
+        que eu nem sabia que estava procurando.
+
       </p>
 
       <div class="quote">
-        “Alguns reencontros parecem o universo dizendo: ainda não acabou.”
+
+        “Alguns reencontros parecem o universo dizendo:
+        ainda não acabou.”
+
       </div>
 
     </article>
 
 
+
     <article class="card">
 
-      <div class="month">Mês 12</div>
+      <div class="month">
+        Mês 12
+      </div>
 
-      <h3>A certeza</h3>
+      <h3>
+        A certeza
+      </h3>
 
       <p>
-        Depois de tudo, uma coisa ficou clara para mim: eu te amo.
 
-        Não como uma ideia bonita ou um sentimento passageiro, mas como uma
-        vontade sincera de continuar te conhecendo, te admirando, te fazendo
-        sorrir e, se você permitir, construir muitos outros meses ao seu lado.
+        Depois de tudo, uma coisa ficou clara para mim:
+        eu te amo.
+
+        Não como uma ideia bonita ou um sentimento passageiro,
+        mas como uma vontade sincera de continuar te conhecendo,
+        te admirando, te fazendo sorrir e, se você permitir,
+        construir muitos outros meses ao seu lado.
+
       </p>
 
       <div class="quote">
-        “Se eu pudesse escolher de novo, escolheria conhecer você.”
+
+        “Se eu pudesse escolher de novo,
+        escolheria conhecer você.”
+
       </div>
 
     </article>
+
+
+  </div>
+
+
+
+  <!-- =====================================================
+       SEGREDO
+  ===================================================== -->
+
+  <div class="secret-wrapper">
+
+    <div class="secret-line"></div>
+
+
+    <button
+      class="secret-button"
+      id="secretButton"
+      type="button"
+    >
+
+      Há algo que eu ainda não te contei
+
+    </button>
+
+
+    <div class="secret-hint">
+      talvez você deva clicar...
+    </div>
+
+
+    <!-- CONTEÚDO ESCONDIDO -->
+
+    <div
+      class="secret-content"
+      id="secretContent"
+    >
+
+      <div class="section-head">
+
+        <div class="kicker">
+          Se você chegou até aqui
+        </div>
+
+        <h2>
+          Então leia isso.
+        </h2>
+
+      </div>
+
+
+      <div class="letter">
+
+
+        <p>
+
+          Ana, eu não sei exatamente o que o futuro vai colocar
+          no nosso caminho.
+
+        </p>
+
+
+        <p>
+
+          Mas sei que, durante esse último ano, você conseguiu se tornar
+          alguém que eu não quero simplesmente esquecer.
+
+          Você deixou marcas bonitas em mim, e cada fase —
+          até aquelas em que estivemos distantes —
+          me ensinou o quanto sua presença importa.
+
+        </p>
+
+
+        <p>
+
+          Mesmo com a distância entre nossas vidas, entre nossas cidades
+          e entre tudo aquilo que às vezes parece nos separar,
+          eu ainda escolheria esperar por você.
+
+        </p>
+
+
+        <p>
+
+          Se fosse preciso esperar muitos e muitos anos,
+          eu esperaria.
+
+          Porque, para mim, você vale a espera.
+
+          Vale cada dia, cada saudade, cada momento em que
+          a distância parece grande demais.
+
+        </p>
+
+
+        <p>
+
+          Eu não quero que os quilômetros sejam capazes
+          de decidir por nós aquilo que o nosso coração ainda não decidiu.
+
+        </p>
+
+
+        <p>
+
+          Talvez a vida nem sempre coloque as pessoas certas
+          no lugar certo e na hora certa.
+
+          Talvez existam caminhos diferentes, cidades diferentes,
+          rotinas diferentes e momentos em que tudo pareça conspirar
+          para nos manter longe.
+
+        </p>
+
+
+        <p>
+
+          Mas, mesmo assim, existe algo em você que faz com que eu
+          não consiga simplesmente olhar para tudo isso e desistir.
+
+        </p>
+
+
+        <p>
+
+          Porque, quando penso em você, a distância deixa de parecer
+          uma barreira e passa a parecer apenas mais uma coisa
+          que precisamos atravessar.
+
+        </p>
+
+
+        <p>
+
+          Você faz uma diferença enorme na minha vida.
+
+          Uma diferença que talvez eu nunca consiga explicar
+          completamente com palavras.
+
+        </p>
+
+
+        <p>
+
+          A sua presença consegue mudar meus dias de uma forma
+          que eu nem sei explicar.
+
+          Às vezes, basta uma mensagem sua, uma conversa,
+          uma palavra ou até mesmo saber que você está ali
+          para que alguma coisa dentro de mim fique diferente.
+
+        </p>
+
+
+        <p>
+
+          Você consegue trazer sentimentos que eu nem sabia
+          que existiam dentro de mim.
+
+        </p>
+
+
+        <p>
+
+          E talvez seja isso que mais me assusta e,
+          ao mesmo tempo, mais me encanta em você:
+
+          você me faz sentir como eu jamais havia me sentido antes.
+
+        </p>
+
+
+        <p>
+
+          É como se, de alguma maneira, você tivesse encontrado
+          um lugar em mim que ninguém nunca conseguiu alcançar.
+
+          Um lugar que eu nem sabia que existia,
+          mas que passou a fazer sentido depois que você chegou.
+
+        </p>
+
+
+        <p>
+
+          Eu não sei explicar exatamente o que existe entre nós.
+
+          Não sei colocar um nome perfeito em tudo aquilo que sinto,
+          nem sei prever o que a vida vai fazer com os nossos caminhos
+          daqui para frente.
+
+        </p>
+
+
+        <p>
+
+          Mas existe uma coisa da qual eu tenho certeza:
+
+          <strong>
+            o que eu sinto é verdadeiro para mim.
+          </strong>
+
+        </p>
+
+
+        <p>
+
+          E, por mais que a distância exista,
+          ela nunca conseguiu fazer o que eu sinto por você desaparecer.
+
+        </p>
+
+
+        <p>
+
+          Pelo contrário.
+
+          Em alguns momentos, ela só me fez perceber ainda mais
+          o quanto a sua presença significa para mim.
+
+        </p>
+
+
+        <p>
+
+          Porque é quando você não está perto que eu percebo
+          o quanto gostaria que estivesse.
+
+          É quando sinto saudade que entendo o tamanho do espaço
+          que você ocupou na minha vida.
+
+        </p>
+
+
+        <p>
+
+          Eu gostaria de poder diminuir todos esses quilômetros.
+
+          Gostaria de poder simplesmente atravessar a distância
+          e estar ao seu lado sempre que tivesse vontade.
+
+        </p>
+
+
+        <p>
+
+          Gostaria de compartilhar contigo os pequenos momentos
+          do dia, rir das coisas mais bobas, conversar por horas
+          sem perceber o tempo passar e, principalmente,
+          poder olhar para você e sentir que, finalmente,
+          não existe mais nada entre nós além do momento
+          que estamos vivendo.
+
+        </p>
+
+
+        <p>
+
+          Mas enquanto isso não é possível,
+          eu continuo aqui.
+
+        </p>
+
+
+        <p>
+
+          E não digo isso como uma promessa vazia
+          ou como uma forma bonita de falar.
+
+          Digo porque, se depender de mim,
+          eu não vou deixar que a distância seja o motivo
+          pelo qual você deixe de fazer parte da minha vida.
+
+        </p>
+
+
+        <p>
+
+          <strong>
+            Eu esperaria por você.
+          </strong>
+
+        </p>
+
+
+        <p>
+
+          Esperaria mesmo que fossem meses.
+
+          Esperaria mesmo que fossem anos.
+
+          Esperaria mesmo que a vida mudasse,
+          que os caminhos fossem difíceis
+          e que houvesse momentos em que parecesse mais fácil desistir.
+
+        </p>
+
+
+        <p>
+
+          Porque algumas pessoas simplesmente fazem
+          a espera valer a pena.
+
+          E você é uma dessas pessoas para mim.
+
+        </p>
+
+
+        <p>
+
+          Você não é apenas alguém que passou pela minha vida.
+
+          Você se tornou alguém que deixou uma marca nela.
+
+        </p>
+
+
+        <p>
+
+          Alguém que mudou a maneira como eu enxergo certas coisas,
+          que despertou sentimentos que eu nunca tinha conhecido
+          e que me fez perceber que algumas conexões
+          não precisam ser explicadas para serem sentidas.
+
+        </p>
+
+
+        <p>
+
+          Eu não quero prometer que tudo será perfeito,
+          porque eu sei que a vida não funciona assim.
+
+        </p>
+
+
+        <p>
+
+          Sei que existirão dificuldades, saudades, dias ruins
+          e momentos em que talvez tudo pareça complicado demais.
+
+        </p>
+
+
+        <p>
+
+          Mas, mesmo sabendo disso,
+          <strong>
+            eu ainda escolheria você.
+          </strong>
+
+        </p>
+
+
+        <p>
+
+          Escolheria você nos dias fáceis e nos difíceis.
+
+          Escolheria você quando a distância parecesse pequena
+          e também quando ela parecesse impossível de suportar.
+
+        </p>
+
+
+        <p>
+
+          Escolheria você mesmo sem saber exatamente
+          quanto tempo levaria para podermos estar juntos.
+
+        </p>
+
+
+        <p>
+
+          Porque, no fim, acho que é simples:
+
+          <strong>
+            eu só quero você.
+          </strong>
+
+        </p>
+
+
+        <p>
+
+          Quero continuar conhecendo cada parte sua,
+          cada detalhe, cada jeito, cada sentimento.
+
+        </p>
+
+
+        <p>
+
+          Quero descobrir tudo aquilo que ainda não conheço
+          e continuar construindo, pouco a pouco,
+          aquilo que existe entre nós.
+
+        </p>
+
+
+        <p>
+
+          E se a vida me der a oportunidade,
+          eu quero continuar escolhendo você,
+          quantas vezes forem necessárias.
+
+        </p>
+
+
+        <p>
+
+          Não importa quantas cidades existam entre nós,
+          quantos quilômetros precisem ser atravessados
+          ou quanto tempo seja necessário esperar.
+
+        </p>
+
+
+        <p>
+
+          Se um dia todos esses caminhos finalmente nos levarem
+          para o mesmo lugar, eu quero poder olhar para trás
+          e pensar que valeu a pena não desistir.
+
+        </p>
+
+
+        <p>
+
+          Porque, para mim,
+
+          <strong>
+            você vale a espera.
+          </strong>
+
+        </p>
+
+
+        <p>
+
+          Você vale a saudade.
+
+        </p>
+
+
+        <p>
+
+          Você vale os quilômetros.
+
+        </p>
+
+
+        <p>
+
+          E, acima de tudo,
+
+          <strong>
+            você vale a escolha de continuar acreditando em nós.
+          </strong>
+
+        </p>
+
+
+        <div class="signature">
+          — Com amor, para você.
+        </div>
+
+
+      </div>
+
+    </div>
 
   </div>
 
 </section>
 
 
+
+<!-- =====================================================
+     DETALHES
+===================================================== -->
+
 <section class="reveal">
 
   <div class="section-head">
-    <div class="kicker">Pequenos detalhes</div>
-    <h2>O que eu amo em você.</h2>
+
+    <div class="kicker">
+      Pequenos detalhes
+    </div>
+
+    <h2>
+      O que eu amo em você.
+    </h2>
+
   </div>
+
 
   <div class="loves">
 
-    <div class="love">
-      <span>01</span>
-      <h3>Seu cabelo</h3>
-      <p>
-        Eu poderia passar muito tempo falando sobre ele.
-        É um daqueles detalhes que simplesmente fazem você ser você.
-      </p>
-    </div>
 
     <div class="love">
-      <span>02</span>
-      <h3>Sua risada</h3>
+
+      <span>01</span>
+
+      <h3>
+        Seu cabelo
+      </h3>
+
       <p>
+
+        Eu poderia passar muito tempo falando sobre ele.
+        É um daqueles detalhes que simplesmente fazem
+        você ser você.
+
+      </p>
+
+    </div>
+
+
+    <div class="love">
+
+      <span>02</span>
+
+      <h3>
+        Sua risada
+      </h3>
+
+      <p>
+
         Uma das coisas que eu mais gosto de ouvir.
         Tem algo nela que consegue deixar qualquer momento mais leve.
+
       </p>
+
     </div>
 
+
     <div class="love">
+
       <span>03</span>
-      <h3>Seu humor</h3>
+
+      <h3>
+        Seu humor
+      </h3>
+
       <p>
-        O seu jeito de brincar, de falar e de transformar situações simples
-        em momentos que eu lembro depois.
+
+        O seu jeito de brincar, de falar e de transformar
+        situações simples em momentos que eu lembro depois.
+
       </p>
+
     </div>
 
+
     <div class="love">
+
       <span>04</span>
-      <h3>Sua inteligência</h3>
+
+      <h3>
+        Sua inteligência
+      </h3>
+
       <p>
-        Admiro a maneira como você pensa, aprende e enxerga as coisas.
-        Você é muito mais capaz do que talvez perceba.
+
+        Admiro a maneira como você pensa, aprende e enxerga
+        as coisas. Você é muito mais capaz do que talvez perceba.
+
       </p>
+
     </div>
 
+
     <div class="love">
+
       <span>05</span>
-      <h3>Suas capacidades</h3>
+
+      <h3>
+        Suas capacidades
+      </h3>
+
       <p>
+
         Eu gosto de ver você fazendo aquilo que sabe fazer.
         Existe uma força e um talento em você que eu admiro de verdade.
+
       </p>
+
     </div>
+
 
     <div class="love">
+
       <span>06</span>
-      <h3>Seu jeitinho bravinha</h3>
+
+      <h3>
+        Seu jeitinho bravinha
+      </h3>
+
       <p>
+
         E, sim, até quando você fica bravinha comigo.
         Talvez seja justamente porque é você que até isso consegue ser fofo.
+
       </p>
+
     </div>
+
 
   </div>
 
 </section>
 
 
-<section class="reveal">
 
-  <div class="section-head">
-    <div class="kicker">O que eu queria te dizer</div>
-    <h2>Sem metáforas dessa vez.</h2>
-  </div>
-
-
-  <div class="letter">
-
-    <p>
-      Ana, eu não sei exatamente o que o futuro vai colocar no nosso caminho.
-    </p>
-
-    <p>
-      Mas sei que, durante esse último ano, você conseguiu se tornar alguém
-      que eu não quero simplesmente esquecer. Você deixou marcas bonitas em mim,
-      e cada fase — até aquelas em que estivemos distantes — me ensinou o quanto
-      sua presença importa.
-    </p>
-
-    <p>
-      Mesmo com a distância entre nossas vidas, entre nossas cidades e entre
-      tudo aquilo que às vezes parece nos separar, eu ainda escolheria esperar
-      por você.
-    </p>
-
-    <p>
-      Se fosse preciso esperar muitos e muitos anos, eu esperaria.
-      Porque, para mim, você vale a espera. Vale cada dia, cada saudade,
-      cada momento em que a distância parece grande demais.
-    </p>
-
-    <p>
-      Eu não quero que os quilômetros sejam capazes de decidir por nós aquilo
-      que o nosso coração ainda não decidiu.
-    </p>
-
-    <p>
-      Talvez a vida nem sempre coloque as pessoas certas no lugar certo e na
-      hora certa. Talvez existam caminhos diferentes, cidades diferentes,
-      rotinas diferentes e momentos em que tudo pareça conspirar para nos
-      manter longe.
-    </p>
-
-    <p>
-      Mas, mesmo assim, existe algo em você que faz com que eu não consiga
-      simplesmente olhar para tudo isso e desistir.
-    </p>
-
-    <p>
-      Porque, quando penso em você, a distância deixa de parecer uma barreira
-      e passa a parecer apenas mais uma coisa que precisamos atravessar.
-    </p>
-
-    <p>
-      Você faz uma diferença enorme na minha vida. Uma diferença que talvez
-      eu nunca consiga explicar completamente com palavras.
-    </p>
-
-    <p>
-      A sua presença consegue mudar meus dias de uma forma que eu nem sei
-      explicar. Às vezes, basta uma mensagem sua, uma conversa, uma palavra
-      ou até mesmo saber que você está ali para que alguma coisa dentro de
-      mim fique diferente.
-    </p>
-
-    <p>
-      Você consegue trazer sentimentos que eu nem sabia que existiam dentro de mim.
-    </p>
-
-    <p>
-      E talvez seja isso que mais me assusta e, ao mesmo tempo, mais me encanta
-      em você: você me faz sentir como eu jamais havia me sentido antes.
-    </p>
-
-    <p>
-      É como se, de alguma maneira, você tivesse encontrado um lugar em mim
-      que ninguém nunca conseguiu alcançar. Um lugar que eu nem sabia que
-      existia, mas que passou a fazer sentido depois que você chegou.
-    </p>
-
-    <p>
-      Eu não sei explicar exatamente o que existe entre nós.
-      Não sei colocar um nome perfeito em tudo aquilo que sinto, nem sei
-      prever o que a vida vai fazer com os nossos caminhos daqui para frente.
-    </p>
-
-    <p>
-      Mas existe uma coisa da qual eu tenho certeza:
-      <em>o que eu sinto é verdadeiro para mim.</em>
-    </p>
-
-    <p>
-      E, por mais que a distância exista, ela nunca conseguiu fazer o que
-      eu sinto por você desaparecer.
-    </p>
-
-    <p>
-      Pelo contrário. Em alguns momentos, ela só me fez perceber ainda mais
-      o quanto a sua presença significa para mim.
-    </p>
-
-    <p>
-      Porque é quando você não está perto que eu percebo o quanto gostaria
-      que estivesse. É quando sinto saudade que entendo o tamanho do espaço
-      que você ocupou na minha vida.
-    </p>
-
-    <p>
-      Eu gostaria de poder diminuir todos esses quilômetros.
-      Gostaria de poder simplesmente atravessar a distância e estar ao seu
-      lado sempre que tivesse vontade.
-    </p>
-
-    <p>
-      Gostaria de compartilhar contigo os pequenos momentos do dia, rir das
-      coisas mais bobas, conversar por horas sem perceber o tempo passar e,
-      principalmente, poder olhar para você e sentir que, finalmente,
-      não existe mais nada entre nós além do momento que estamos vivendo.
-    </p>
-
-    <p>
-      Mas enquanto isso não é possível, eu continuo aqui.
-    </p>
-
-    <p>
-      E não digo isso como uma promessa vazia ou como uma forma bonita de falar.
-      Digo porque, se depender de mim, eu não vou deixar que a distância seja
-      o motivo pelo qual você deixe de fazer parte da minha vida.
-    </p>
-
-    <p>
-      Eu esperaria por você.
-    </p>
-
-    <p>
-      Esperaria mesmo que fossem meses. Esperaria mesmo que fossem anos.
-      Esperaria mesmo que a vida mudasse, que os caminhos fossem difíceis
-      e que houvesse momentos em que parecesse mais fácil desistir.
-    </p>
-
-    <p>
-      Porque algumas pessoas simplesmente fazem a espera valer a pena.
-      E você é uma dessas pessoas para mim.
-    </p>
-
-    <p>
-      Você não é apenas alguém que passou pela minha vida.
-      Você se tornou alguém que deixou uma marca nela.
-    </p>
-
-    <p>
-      Alguém que mudou a maneira como eu enxergo certas coisas,
-      que despertou sentimentos que eu nunca tinha conhecido e que me fez
-      perceber que algumas conexões não precisam ser explicadas para serem sentidas.
-    </p>
-
-    <p>
-      Eu não quero prometer que tudo será perfeito, porque eu sei que a vida
-      não funciona assim.
-    </p>
-
-    <p>
-      Sei que existirão dificuldades, saudades, dias ruins e momentos em que
-      talvez tudo pareça complicado demais.
-    </p>
-
-    <p>
-      Mas, mesmo sabendo disso, eu ainda escolheria você.
-    </p>
-
-    <p>
-      Escolheria você nos dias fáceis e nos difíceis.
-      Escolheria você quando a distância parecesse pequena e também quando
-      ela parecesse impossível de suportar.
-    </p>
-
-    <p>
-      Escolheria você mesmo sem saber exatamente quanto tempo levaria
-      para podermos estar juntos.
-    </p>
-
-    <p>
-      Porque, no fim, acho que é simples:
-      <strong>eu só quero você.</strong>
-    </p>
-
-    <p>
-      Quero continuar conhecendo cada parte sua, cada detalhe, cada jeito,
-      cada sentimento.
-    </p>
-
-    <p>
-      Quero descobrir tudo aquilo que ainda não conheço e continuar construindo,
-      pouco a pouco, aquilo que existe entre nós.
-    </p>
-
-    <p>
-      E se a vida me der a oportunidade, eu quero continuar escolhendo você,
-      quantas vezes forem necessárias.
-    </p>
-
-    <p>
-      Não importa quantas cidades existam entre nós, quantos quilômetros
-      precisem ser atravessados ou quanto tempo seja necessário esperar.
-    </p>
-
-    <p>
-      Se um dia todos esses caminhos finalmente nos levarem para o mesmo lugar,
-      eu quero poder olhar para trás e pensar que valeu a pena não desistir.
-    </p>
-
-    <p>
-      Porque, para mim, você vale a espera.
-    </p>
-
-    <p>
-      Você vale a saudade.
-    </p>
-
-    <p>
-      Você vale os quilômetros.
-    </p>
-
-    <p>
-      E, acima de tudo, você vale a escolha de continuar acreditando em nós.
-    </p>
-
-    <div class="signature">
-      — Com amor, para você.
-    </div>
-
-  </div>
-
-</section>
-
+<!-- =====================================================
+     FINAL
+===================================================== -->
 
 <section class="final reveal">
 
@@ -880,8 +1740,11 @@ h2{
     </h2>
 
     <p>
+
       Obrigado por existir na minha história.
-      Que este seja apenas o primeiro capítulo de muitos que ainda podemos escrever.
+      Que este seja apenas o primeiro capítulo
+      de muitos que ainda podemos escrever.
+
     </p>
 
     <div class="heart">
@@ -892,35 +1755,101 @@ h2{
 
 </section>
 
+
 </main>
+
 
 
 <script>
 
-const items = document.querySelectorAll('.reveal');
+/* =====================================================
+   ANIMAÇÕES DE SCROLL
+===================================================== */
 
-const observer = new IntersectionObserver(
-  entries => {
+const items =
+  document.querySelectorAll('.reveal');
 
-    entries.forEach(e => {
+const observer =
+  new IntersectionObserver(
 
-      if(e.isIntersecting){
+    entries => {
 
-        e.target.classList.add('show');
+      entries.forEach(e => {
 
-      }
+        if(e.isIntersecting){
 
-    });
+          e.target.classList.add('show');
 
-  },
-  {
-    threshold:.12
+        }
+
+      });
+
+    },
+
+    {
+      threshold:.12
+    }
+
+  );
+
+
+items.forEach(
+  i => observer.observe(i)
+);
+
+
+
+/* =====================================================
+   SEGREDO
+===================================================== */
+
+const secretButton =
+  document.getElementById(
+    'secretButton'
+  );
+
+const secretContent =
+  document.getElementById(
+    'secretContent'
+  );
+
+const secretWrapper =
+  document.querySelector(
+    '.secret-wrapper'
+  );
+
+
+secretButton.addEventListener(
+  'click',
+  () => {
+
+    secretContent.classList.add(
+      'open'
+    );
+
+    secretWrapper.classList.add(
+      'revealed'
+    );
+
+
+    /* espera a animação começar
+       antes de levar a pessoa
+       para o segredo */
+
+    setTimeout(() => {
+
+      secretContent.scrollIntoView({
+        behavior:'smooth',
+        block:'start'
+      });
+
+    },300);
+
   }
 );
 
-items.forEach(i => observer.observe(i));
-
 </script>
+
 
 </body>
 </html>
